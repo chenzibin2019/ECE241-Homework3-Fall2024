@@ -34,7 +34,7 @@ class BinarySearchTree:
         res = self._get(key, self.root)
         if res is None:
             return None
-        return res.payload
+        return res
 
     def _get(self, key, node):
         if node is None:
@@ -69,8 +69,8 @@ def main():
 
     path = mytree.find_path(3, 8)
 
-    for i in range(len(path) - 1):
-        print(path[i] + ' --> ', end='')
+    for i, node in enumerate(path):
+        print(node, end=' --> ' if i < len(path) - 1 else '')
 
 
 if __name__ == "__main__":

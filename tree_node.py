@@ -11,3 +11,6 @@ class TreeNode:
 
     def hasRightChild(self):
         return self.rightChild
+
+    def __str__(self):
+        return '(' + str(self.key) + ', ' + str(self.payload) + ')'
