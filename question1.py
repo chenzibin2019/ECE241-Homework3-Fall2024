@@ -13,7 +13,10 @@ class HashTable:
         self.slots = [None] * self.size
 
     def put(self, key, data):
-        """Only fill this function to put key, data in self.slots as per the question description"""
+        """
+        TODO: fill this function to put key-data pair
+        TODO: in self.slots as per the question description
+        """
         pass
 
     def slot_size(self, key):
@@ -44,13 +47,12 @@ def main():
     h = HashTable(11)
     h[1] = "grass"
     h[12] = "mass"
-    print(h[1])
+    print(h[1]) # Excepted: [Key:1,Data:grass]
     h[2] = 14
     h[1] = 2
-    print(h[1], h[2], h[12])
-    print(h.slots)
-    print(h.slot_size(1))
-    print(h.slot_content(1))
+    print(h[1], h[2], h[12]) # Excepted [Key:1,Data:2] [Key:2,Data:14] [Key:12,Data:mass]
+    print(h.slot_size(1)) # Excepted 2
+    print(h.slot_content(1)) # Excepted [Key:1,Data:2]->[Key:12,Data:mass]->None
 
 
 if __name__ == '__main__':

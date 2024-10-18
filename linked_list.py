@@ -86,12 +86,11 @@ class OrderedList:
         print_list=""
         current = self.head
         while current is not None:
-            node_print="[Key:{},Data:{}]".format(current.getKey(), current.getData())
-            print_list += node_print
+            print_list += str(current)
             print_list += "->"
             current = current.next
 
         print_list +="None"
 
-        return str(print_list)
+        return print_list
     
