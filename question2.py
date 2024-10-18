@@ -69,6 +69,9 @@ def main():
 
     path = mytree.find_path(3, 8)
 
+    for i in range(len(path) - 1):
+        print(path[i] + ' --> ', end='')
+
 
 if __name__ == "__main__":
     main()
