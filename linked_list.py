@@ -7,23 +7,11 @@ class Node:
     def getData(self):
         return self.data
 
-    def getKey(self):
-        return self.key
-
-    def getNext(self):
-        return self.next
-
-    def setData(self,new_data):
-        self.data = new_data
-
-    def setKey(self,new_key):
-        self.key = new_key
-
     def setNext(self,new_next):
         self.next = new_next
 
     def __str__(self):
-        node_print = "[Key:{},Data:{}]".format(self.getKey(), self.getData())
+        node_print = "[Key:{},Data:{}]".format(self.key, self.data)
         return str(node_print)
 
 
@@ -76,7 +64,7 @@ class OrderedList:
     def size(self):
         current = self.head
         count = 0
-        while current != None:
+        while current:
             count = count + 1
             current = current.getNext()
 
