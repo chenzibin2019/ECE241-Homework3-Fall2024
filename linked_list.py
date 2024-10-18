@@ -7,7 +7,10 @@ class Node:
     def getData(self):
         return self.data
 
-    def setNext(self,new_next):
+    def setData(self, new_data):
+        self.data = new_data
+
+    def setNext(self, new_next):
         self.next = new_next
 
     def __str__(self):
@@ -26,14 +29,14 @@ class OrderedList:
         stop = False
         found_node = None
         while (current is not None) and not found and not stop:
-            if current.getKey() == key:
+            if current.key == key:
                 found = True
                 found_node = current
             else:
-                if current.getKey() > key:
+                if current.key > key:
                     stop = True
                 else:
-                    current = current.getNext()
+                    current = current.next
 
         return found_node
 
@@ -43,15 +46,15 @@ class OrderedList:
         previous = None
         stop = False
         while (current is not None) and not stop:
-            if current.getKey() > key:
+            if current.key > key:
                 stop = True
             else:
                 previous = current
-                current = current.getNext()
+                current = current.next
 
         temp = Node(key, data)
 
-        if previous == None:
+        if previous is None:
             temp.setNext(self.head)
             self.head = temp
         else:
@@ -59,14 +62,14 @@ class OrderedList:
             previous.setNext(temp)
 
     def isEmpty(self):
-        return self.head == None
+        return self.head is None
 
     def size(self):
         current = self.head
         count = 0
         while current:
             count = count + 1
-            current = current.getNext()
+            current = current.next
 
         return count
 
