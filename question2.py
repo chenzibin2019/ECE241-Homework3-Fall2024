@@ -15,40 +15,36 @@ class BinarySearchTree:
         else:
             self.root = TreeNode(key, val)
 
-    def _put(self, key, val, currentNode):
-        if key < currentNode.key:
-            if currentNode.hasLeftChild():
-                self._put(key, val, currentNode.leftChild)
+    def _put(self, key, val, node):
+        if key < node.key:
+            if node.hasLeftChild():
+                self._put(key, val, node.leftChild)
             else:
-                currentNode.leftChild = TreeNode(key, val, parent=currentNode)
+                node.leftChild = TreeNode(key, val, parent=node)
         else:
-            if currentNode.hasRightChild():
-                self._put(key, val, currentNode.rightChild)
+            if node.hasRightChild():
+                self._put(key, val, node.rightChild)
             else:
-                currentNode.rightChild = TreeNode(key, val, parent=currentNode)
+                node.rightChild = TreeNode(key, val, parent=node)
 
     def __setitem__(self, k, v):
         self.put(k, v)
 
     def get(self, key):
-        if self.root:
-            res = self._get(key, self.root)
-            if res:
-                return res.payload
-            else:
-                return None
-        else:
+        res = self._get(key, self.root)
+        if res is None:
             return None
+        return res.payload
 
-    def _get(self, key, currentNode):
-        if not currentNode:
+    def _get(self, key, node):
+        if node is None:
             return None
-        elif currentNode.key == key:
-            return currentNode
-        elif key < currentNode.key:
-            return self._get(key, currentNode.leftChild)
+        if node.key == key:
+            return node
+        if key < node.key:
+            return self._get(key, node.leftChild)
         else:
-            return self._get(key, currentNode.rightChild)
+            return self._get(key, node.rightChild)
 
     def __getitem__(self, key):
         return self.get(key)
