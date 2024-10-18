@@ -1,58 +1,11 @@
 """
 UMass ECE 241 - Advanced Programming
 Homework #3   - Fall 2024
-question2.py
-
-Find the shortest path between 2 nodes in a binary search tree.
-Modify function _find_path() which is called from find_path().
-Follow instructions in _find_path() method to return list_path and steps.
-
+question2.py  - Binary Search Tree
 """
-class TreeNode:
-    def __init__(self, key, val, left=None, right=None, parent=None):
-        self.key = key
-        self.payload = val
-        self.leftChild = left
-        self.rightChild = right
-        self.parent = parent
-
-    def hasLeftChild(self):
-        return self.leftChild
-
-    def hasRightChild(self):
-        return self.rightChild
-
-    def isLeftChild(self):
-        return self.parent and self.parent.leftChild == self
-
-    def isRightChild(self):
-        return self.parent and self.parent.rightChild == self
-
-    def isRoot(self):
-        return not self.parent
-
-    def isLeaf(self):
-        return not (self.rightChild or self.leftChild)
-
-    def hasAnyChildren(self):
-        return self.rightChild or self.leftChild
-
-    def hasBothChildren(self):
-        return self.rightChild and self.leftChild
-
-    def replaceNodeData(self, key, value, lc, rc):
-        self.key = key
-        self.payload = value
-        self.leftChild = lc
-        self.rightChild = rc
-        if self.hasLeftChild():
-            self.leftChild.parent = self
-        if self.hasRightChild():
-            self.rightChild.parent = self
-
+from tree_node import TreeNode
 
 class BinarySearchTree:
-
     def __init__(self):
         self.root = None
         self.size = 0
@@ -125,10 +78,7 @@ class BinarySearchTree:
             return False
 
     def find_path(self, element_1_key, element_2_key):
-        """ Fill in this function to get a path between element_1 and element_2:
-        return: (check line 169 (commented return statement))"""
-        # TODO: Fill in code
-        # return [list_path, self.steps] # TODO: uncomment this line after filling this function
+        """TODO: Fill in this function to get a path between element_1 and element_2"""
         pass
 
     def delete(self, key):
@@ -235,12 +185,10 @@ def main():
     mytree[6] = "blue"
     mytree[3] = "pew"
 
-    """Use this for testing and debugging your code"""
-    # print(mytree[6])
-    # print(mytree[2])
+    print(mytree[6])
+    print(mytree[2])
 
-    # path_list_steps = mytree.find_path(3, 8)
-    # print(path_list_steps[0], path_list_steps[1]) # this prints list_path, steps
+    path = mytree.find_path(3, 8)
 
 
 if __name__ == "__main__":
