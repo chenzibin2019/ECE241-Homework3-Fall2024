@@ -14,9 +14,7 @@ class Node:
         self.next = new_next
 
     def __str__(self):
-        node_print = "[Key:{},Data:{}]".format(self.key, self.data)
-        return str(node_print)
-
+        return "[Key:{},Data:{}]".format(self.key, self.data)
 
 class OrderedList:
     def __init__(self):
